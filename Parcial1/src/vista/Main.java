@@ -2,7 +2,7 @@ package vista;
 
 import java.util.Iterator;
 
-import modelo.Modelo;
+import controlador.Controlador;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -12,17 +12,16 @@ public class Main extends PApplet {
 		PApplet.main(Main.class.getName());
 	}
 	
-	Modelo logic;
+	Controlador control;
 	
 	public void settings() {
-		//cuanto es el tamaño?
+		
 		size(1080, 720 );
 		
 	} 
 	
 	public void setup() {
-		logic = new Modelo(this);
-		System.out.println(logic.getDatos().size());
+		control = new Controlador(this);
 		
 	}
 	
@@ -31,13 +30,13 @@ public class Main extends PApplet {
 	public void draw() {
 		background(255);
 		fill(0);
-		for(int i= 0; i< logic.getDatos().size(); i++) {
-			logic.getDatos().get(i).pintar(100, (i*50)+100);
+		for(int i= 0; i< control.getModel().getDatos().size(); i++) {
+			control.getModel().getDatos().get(i).pintar(100, (i*50)+100);
 		}
 	}
 	
 	public void keyPressed() {
-		
+		control.getModel().Comparaciones(key);
 	}
 
 }

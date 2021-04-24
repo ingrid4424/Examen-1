@@ -62,7 +62,7 @@ public class Modelo {
 		case 'f':
 
 			// ordenamiento parcial por raza
-			Collections.sort(datos, compRaza);
+			Collections.sort(datos, compFecha);
 			break;
 
 		default:
