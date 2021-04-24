@@ -10,20 +10,18 @@ public class Datos implements Comparable<Datos>{
 	private String fecha;
 	private String raza;
 	private PApplet app;
-	private PImage img;
 	private int x;
 	private int y;
 	
 	
 	
-	public Datos(int iD, String nombre, String fecha, String raza, PApplet app, PImage img) {
+	public Datos(int iD, String nombre, String fecha, String raza, PApplet app) {
 		super();
 		this.ID = iD;
 		this.nombre = nombre;
 		this.fecha = fecha;
 		this.raza = raza;
 		this.app = app;
-		this.img = img;
 	}
 
 	public void pintar(int x, int y) {
