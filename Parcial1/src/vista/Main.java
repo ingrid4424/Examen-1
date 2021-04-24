@@ -1,5 +1,7 @@
 package vista;
 
+import java.util.Iterator;
+
 import modelo.Modelo;
 import processing.core.PApplet;
 
@@ -14,7 +16,7 @@ public class Main extends PApplet {
 	
 	public void settings() {
 		//cuanto es el tamaño?
-		size(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		size(1080, 720 );
 		
 	} 
 	
@@ -27,7 +29,11 @@ public class Main extends PApplet {
 	
 	
 	public void draw() {
-		
+		background(255);
+		fill(0);
+		for(int i= 0; i< logic.getDatos().size(); i++) {
+			logic.getDatos().get(i).pintar(100, (i*50)+100);
+		}
 	}
 	
 	public void keyPressed() {

@@ -7,15 +7,16 @@ public class Datos implements Comparable<Datos>{
 
 	private int ID;
 	private String nombre;
-	private int fecha;
+	private String fecha;
 	private String raza;
 	private PApplet app;
 	private PImage img;
+	private int x;
+	private int y;
 	
 	
 	
-	
-	public Datos(int iD, String nombre, int fecha, String raza, PApplet app, PImage img) {
+	public Datos(int iD, String nombre, String fecha, String raza, PApplet app, PImage img) {
 		super();
 		this.ID = iD;
 		this.nombre = nombre;
@@ -25,7 +26,17 @@ public class Datos implements Comparable<Datos>{
 		this.img = img;
 	}
 
-	
+	public void pintar(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.app.text(this.ID, x+50, y);
+		this.app.text(this.nombre, x+125, y);
+		if(this.raza!= null & this.fecha!=null) {
+			this.app.text(this.raza, x+200, y);
+			this.app.text(this.fecha, x+300, y);
+		}
+		
+	}
 
 
 
@@ -47,12 +58,12 @@ public class Datos implements Comparable<Datos>{
 		this.nombre = nombre;
 	}
 
-	public int getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
 
-	public void setFecha(int fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
