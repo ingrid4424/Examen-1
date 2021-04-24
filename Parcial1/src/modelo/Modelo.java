@@ -50,23 +50,45 @@ public class Modelo {
 		case 'a':
 			// ordenamiento natural
 			Collections.sort(datos);
+			
+			saveTxt("ID");
 			break;
 		case 's':
 			// ordenamiento parcial por nombre
 			Collections.sort(datos, compNombre);
+			
+			saveTxt("Nombre");
 			break;
 		case 'd':
 			// ordenamiento parcial por raza
 			Collections.sort(datos, compRaza);
+			
+			saveTxt("Raza");
 			break;
 		case 'f':
 
 			// ordenamiento parcial por raza
 			Collections.sort(datos, compFecha);
+			
+			saveTxt("Fecha");
 			break;
 
 		default:
 			break;
+		}
+	}
+	
+	public void saveTxt( String name) {
+		String nametxt = name;
+		String [] guardarTxt = new String[5];
+		for(int i=0; i<datos.size(); i++) {
+			
+			guardarTxt[i] = datos.get(i).getNombre().toLowerCase() + "," + datos.get(i).getID() + "," + datos.get(i).getRaza().toLowerCase() + "," + datos.get(i).getFecha();
+			
+			if(i==datos.size()-1) {
+				this.app.saveStrings("./data/export/save"+nametxt+".txt", guardarTxt);
+				System.out.println("funciono");
+			}
 		}
 	}
 
